@@ -49,20 +49,22 @@ export default {
 			uni.showLoading({
 				title: '登录中...',
 			})
+
 			return new Promise((resolve, reject) => {
+
 				uni.getUserProfile({
 					desc: '用于完善会员资料',
-					success: (dataRes) => {
-						uni.hideLoading()
-						// uni.setStorageSync('userInfo', 111)
+					success: (data_res) => {
+						console.log(data_res, 'data_res')
 
 						uni.login({
 							success(res) {
+								uni.hideLoading()
 								if (res.code) {
 									uni.request({
 										url: 'http://192.168.0.102:3000/wx/login',
 										method: 'POST',
-										headers: {
+										header: {
 											'Content-Type': 'application/json'
 										},
 										data: {
@@ -72,6 +74,23 @@ export default {
 											if (login_res.data.code === 200) {
 												// uni.setStorageSync('token', login_res.data.data)
 												console.log(login_res, 'login_res')
+
+												uni.request({
+													url: 'http://192.168.0.102:3000/wx/user/info',
+													method: 'POST',
+													header: {
+														'authorization': 'Bearer '+ login_res.data.data,
+													},
+													data: {
+														iv: data_res.iv,
+														encryptedData: data_res.encryptedData,
+													
+													},
+													success(info_res) {
+														console.log(info_res, 'info_res')
+													}
+												})
+
 											} else {
 												uni.showToast({
 													title: '登录失败',
@@ -84,12 +103,23 @@ export default {
 								} else {
 									console.log('登录失败！' + res.errMsg)
 								}
+							},
+							fail(err) {
+								console.log(err)
 							}
 						})
 
+
+
+
 						// resolve(dataRes)
-					}
+					},
+
 				})
+
+
+
+
 			})
 		}
 	}
