@@ -32,3 +32,12 @@
   width: 48rpx;
   height: 48rpx;
 }
+
+.icon-32{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.border-radius-12{
+  border-radius: 24rpx;
+}

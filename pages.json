@@ -1,22 +1,23 @@
 {
-	"pages": [
-		{
+  "pages": [
+    {
       "path": "pages/home/index",
       "style": {
+        "navigationStyle": "custom",
         "backgroundColorTop": "#ffffff",
         "backgroundColorBottom": "#ffffff"
       }
     },
-		{
+    {
       "path": "pages/mine/index",
       "style": {
         "backgroundColorTop": "#ffffff",
         "backgroundColorBottom": "#ffffff"
       }
     }
-	],
-	"tabBar": {
-		"custom": true,
+  ],
+  "tabBar": {
+    "custom": true,
     "color": "#9C9891",
     "selectedColor": "#FF9000",
     "backgroundColor": "#fff",
@@ -30,12 +31,25 @@
         "text": "我的"
       }
     ]
-	},
-	"globalStyle": {
+  },
+  "globalStyle": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
     "backgroundColorBottom": "#F5F4F2"
   },
-	"subPackages": []
+  "subPackages": [
+    {
+      "root": "subpack/home",
+      "pages": [
+        {
+          "path": "pages/GoodsDetail/index",
+          "name": "home",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    }
+  ]
 }

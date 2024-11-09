@@ -1,17 +1,20 @@
 .theme {
-  color: #ff7a00;
+  color: #F8B316;
 }
 .theme-back {
-  background-color: #ff7a00;
+  background-color: #F8B316;
 }
 .theme-border {
-  border: 1px solid #ff9000;
+  border: 1px solid #F8B316;
 }
 .white {
   color: #fff;
 }
 .white-back {
   background-color: #fff;
+}
+.cb-back {
+  background-color: #cbcbcb;
 }
 .clr_000 {
   color: #000000;
@@ -301,6 +304,13 @@
 .icon-24 {
   width: 48rpx;
   height: 48rpx;
+}
+.icon-32{
+  width: 64rpx;
+  height: 64rpx;
+}
+.border-radius-12{
+  border-radius: 24rpx;
 }
 .fixed {
   position: fixed;

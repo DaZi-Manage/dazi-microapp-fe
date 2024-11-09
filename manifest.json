@@ -1,6 +1,6 @@
 {
 	"name": "",
-	"appid": "",
+	"appid": "wxc525d4d5cccec191",
 	"description": "",
 	"versionName": "1.0.0",
 	"versionCode": "100",
@@ -42,11 +42,12 @@
 	},
 	"quickapp": {},
 	"mp-weixin": {
-		"appid": "",
+		"appid": "wxc525d4d5cccec191",
 		"setting": {
 			"urlCheck": false
 		},
 		"usingComponents": true,
+		"libVersion":"latest",
 		"permission": {
 			"scope.userLocation": {
 				"desc": "你的位置信息将用于小程序位置接口的效果展示"

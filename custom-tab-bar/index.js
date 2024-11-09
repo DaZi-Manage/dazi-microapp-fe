@@ -2,7 +2,7 @@ Component({
 	data: {
 		selected: 0,
 		color: '#666',
-		selectedColor: '#FF7A00',
+		selectedColor: '#F8B316',
 		list: [
 			{
 				pagePath: '/pages/home/index',
@@ -21,14 +21,15 @@ Component({
 
 	methods: {
 		switchTab(e) {
-			const data = e.currentTarget.dataset
-			if (data.index === this.data.selected) {
-				return
-			}
-			const url = data.path
-			wx.switchTab({ url })
+			const { dataset } = e.currentTarget
+			
+			if (dataset.index === this.data.selected) return
+
+			wx.switchTab({
+				url: dataset.path
+			})
 			this.setData({
-				selected: data.index
+				selected: dataset.index
 			})
 		}
 	}

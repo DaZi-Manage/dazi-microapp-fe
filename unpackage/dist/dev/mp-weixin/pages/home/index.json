@@ -1,5 +1,8 @@
 {
+  "navigationStyle": "custom",
   "backgroundColorTop": "#ffffff",
   "backgroundColorBottom": "#ffffff",
-  "usingComponents": {}
+  "usingComponents": {
+    "data-list": "/pages/home/components/DataList/index"
+  }
 }

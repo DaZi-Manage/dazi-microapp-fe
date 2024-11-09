@@ -4,20 +4,17 @@ const storage = require('./utils/storage.js')
 export default {
 	globalData: {
 		system_info: {},
-		position: {},
 		user_info: {}
 	},
 
 	onLaunch: function () {
 		this.getSystemInfo()
-		this.getCurrentLocation()
-		// this.getUserProfile()
 	},
 
 
 	methods: {
 		checkLogin() {
-			const userInfo = storage.getUserInfo()
+			const userInfo = storage.getToken()
 			return !!userInfo
 		},
 
@@ -47,47 +44,50 @@ export default {
 			})
 		},
 
-		getCurrentLocation() {
-			const that = this
-			return new Promise((resolve, reject) => {
-				uni.getSetting({
-					success: (res) => {
-						if (!Reflect.has(res.authSetting, 'scope.userLocation')) {
-							uni.getLocation({
-								type: 'gcj02',
-								altitude: false,
-								success: async (result) => {
-									this.globalData.position = {
-										latitude: +result.latitude,
-										longitude: +result.longitude,
-									}
-								},
-								fail: (err) => {
-									resolve()
-								},
-							})
-						} else {
-							resolve()
-						}
-					}
-				})
-			})
-		},
-
 		doWxLogin() {
 			const that = this
+			uni.showLoading({
+				title: '登录中...',
+			})
 			return new Promise((resolve, reject) => {
 				uni.getUserProfile({
 					desc: '用于完善会员资料',
 					success: (dataRes) => {
-						uni.showLoading({
-							title: '登录中...',
+						uni.hideLoading()
+						// uni.setStorageSync('userInfo', 111)
+
+						uni.login({
+							success(res) {
+								if (res.code) {
+									uni.request({
+										url: 'http://192.168.0.102:3000/wx/login',
+										method: 'POST',
+										headers: {
+											'Content-Type': 'application/json'
+										},
+										data: {
+											jsCode: res.code
+										},
+										success(login_res) {
+											if (login_res.data.code === 200) {
+												// uni.setStorageSync('token', login_res.data.data)
+												console.log(login_res, 'login_res')
+											} else {
+												uni.showToast({
+													title: '登录失败',
+													icon: 'none'
+												})
+											}
+
+										}
+									})
+								} else {
+									console.log('登录失败！' + res.errMsg)
+								}
+							}
 						})
-						console.log(dataRes)
-						return dataRes
-					},
-					complete: function (err) {
-						console.log(err)
+
+						// resolve(dataRes)
 					}
 				})
 			})

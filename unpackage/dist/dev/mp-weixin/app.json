@@ -3,7 +3,14 @@
     "pages/home/index",
     "pages/mine/index"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subpack/home",
+      "pages": [
+        "pages/GoodsDetail/index"
+      ]
+    }
+  ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",

@@ -18,10 +18,27 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "3.6.4",
-  "appid": "touristappid",
+  "libVersion": "latest",
+  "appid": "wxc525d4d5cccec191",
   "projectname": "mini_uni",
-  "condition": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+    }
+  },
   "editorSetting": {
     "tabIndent": "auto",
     "tabSize": 2

@@ -775,7 +775,7 @@ function populateParameters(result) {
   // wx.getAccountInfoSync
 
   var parameters = {
-    appId: "",
+    appId: "wxc525d4d5cccec191",
     appName: "",
     appVersion: "1.0.0",
     appVersionCode: "100",
@@ -874,7 +874,7 @@ var getAppBaseInfo = {
     var _hostName = getHostName(result);
     var hostLanguage = language.replace('_', '-');
     result = sortObject(Object.assign(result, {
-      appId: "",
+      appId: "wxc525d4d5cccec191",
       appName: "",
       appVersion: "1.0.0",
       appVersionCode: "100",
@@ -9478,9 +9478,48 @@ internalMixin(Vue);
 /* 27 */,
 /* 28 */,
 /* 29 */,
-/* 30 */,
+/* 30 */
+/*!*************************************************************!*\
+  !*** /Users/aiguojiang11/Desktop/mini_uni/utils/storage.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getToken = void 0;
+/*
+ * @Author: 山风
+ * @Date: 2024-11-08 14:06:09
+ * @LastEditTime: 2024-11-09 20:38:52
+ * @LastEditors: 山风
+ * @Description: 
+ * @FilePath: /mini_uni/utils/storage.js
+ */
+var getToken = function getToken() {
+  try {
+    var value = uni.getStorageSync('token');
+    if (value) {
+      return value;
+    } else {
+      return null;
+    }
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};
+exports.getToken = getToken;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
 /* 31 */,
-/* 32 */
+/* 32 */,
+/* 33 */
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -9611,7 +9650,7 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /*!***************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/index.js ***!
   \***************************************************************************/
@@ -9627,15 +9666,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _pageLifetimes = __webpack_require__(/*! ./lifecycle/pageLifetimes */ 34);
-var _clone = __webpack_require__(/*! ./methods/clone */ 35);
-var _dataset = __webpack_require__(/*! ./methods/dataset */ 36);
-var _escape = __webpack_require__(/*! ./methods/escape */ 37);
-var _event = __webpack_require__(/*! ./methods/event */ 38);
-var _getTabBar = __webpack_require__(/*! ./methods/getTabBar */ 39);
-var _relation = __webpack_require__(/*! ./methods/relation */ 40);
-var _selectComponent = __webpack_require__(/*! ./methods/selectComponent */ 41);
-var _setData = __webpack_require__(/*! ./methods/setData */ 42);
+var _pageLifetimes = __webpack_require__(/*! ./lifecycle/pageLifetimes */ 35);
+var _clone = __webpack_require__(/*! ./methods/clone */ 36);
+var _dataset = __webpack_require__(/*! ./methods/dataset */ 37);
+var _escape = __webpack_require__(/*! ./methods/escape */ 38);
+var _event = __webpack_require__(/*! ./methods/event */ 39);
+var _getTabBar = __webpack_require__(/*! ./methods/getTabBar */ 40);
+var _relation = __webpack_require__(/*! ./methods/relation */ 41);
+var _selectComponent = __webpack_require__(/*! ./methods/selectComponent */ 42);
+var _setData = __webpack_require__(/*! ./methods/setData */ 43);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var _default = {
@@ -9659,7 +9698,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /*!*********************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/lifecycle/pageLifetimes.js ***!
   \*********************************************************************************************/
@@ -9706,7 +9745,7 @@ var pageLifetimes = {
 exports.pageLifetimes = pageLifetimes;
 
 /***/ }),
-/* 35 */
+/* 36 */
 /*!***********************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/clone.js ***!
   \***********************************************************************************/
@@ -9732,7 +9771,7 @@ function clone(target) {
 }
 
 /***/ }),
-/* 36 */
+/* 37 */
 /*!*************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/dataset.js ***!
   \*************************************************************************************/
@@ -9770,7 +9809,7 @@ function handleDataset(event) {
 }
 
 /***/ }),
-/* 37 */
+/* 38 */
 /*!************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/escape.js ***!
   \************************************************************************************/
@@ -9822,7 +9861,7 @@ function html2Escape(sHtml) {
 }
 
 /***/ }),
-/* 38 */
+/* 39 */
 /*!***********************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/event.js ***!
   \***********************************************************************************/
@@ -9848,7 +9887,7 @@ function parseEventDynamicCode(e, exp) {
 }
 
 /***/ }),
-/* 39 */
+/* 40 */
 /*!***************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/getTabBar.js ***!
   \***************************************************************************************/
@@ -9883,7 +9922,7 @@ function getTabBar() {
 }
 
 /***/ }),
-/* 40 */
+/* 41 */
 /*!**************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/relation.js ***!
   \**************************************************************************************/
@@ -9909,7 +9948,7 @@ function getRelationNodes(name) {
 }
 
 /***/ }),
-/* 41 */
+/* 42 */
 /*!*********************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/selectComponent.js ***!
   \*********************************************************************************************/
@@ -10127,7 +10166,7 @@ function selectAllComponents(args) {
 }
 
 /***/ }),
-/* 42 */
+/* 43 */
 /*!*************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/methods/setData.js ***!
   \*************************************************************************************/
@@ -10142,8 +10181,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.setData = setData;
-var _set2 = _interopRequireDefault(__webpack_require__(/*! ../utils/_set */ 43));
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ../utils/debounce */ 44));
+var _set2 = _interopRequireDefault(__webpack_require__(/*! ../utils/_set */ 44));
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ../utils/debounce */ 45));
 /**
  * 老setData polyfill
  * 用于转换后的uniapp的项目能直接使用this.setData()函数
@@ -10233,7 +10272,7 @@ function setData(obj) {
 }
 
 /***/ }),
-/* 43 */
+/* 44 */
 /*!********************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/utils/_set.js ***!
   \********************************************************************************/
@@ -10277,7 +10316,7 @@ var _default = _set;
 exports.default = _default;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /*!************************************************************************************!*\
   !*** /Users/aiguojiang11/Desktop/mini_uni/uni_modules/zp-mixins/utils/debounce.js ***!
   \************************************************************************************/
@@ -10310,20 +10349,13 @@ var _default = debounce;
 exports.default = _default;
 
 /***/ }),
-/* 45 */,
 /* 46 */,
 /* 47 */,
 /* 48 */,
 /* 49 */,
 /* 50 */,
 /* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */
+/* 52 */
 /*!************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/@babel/runtime/regenerator/index.js ***!
   \************************************************************************************************/
@@ -10332,11 +10364,11 @@ exports.default = _default;
 
 // TODO(Babel 8): Remove this file.
 
-var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 59)();
+var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 53)();
 module.exports = runtime;
 
 /***/ }),
-/* 59 */
+/* 53 */
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/regeneratorRuntime.js ***!
   \*******************************************************************/
@@ -10657,7 +10689,7 @@ function _regeneratorRuntime() {
 module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 60 */
+/* 54 */
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
   \*****************************************************************/
@@ -10695,38 +10727,6 @@ function _asyncToGenerator(fn) {
   };
 }
 module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 61 */,
-/* 62 */
-/*!*************************************************************!*\
-  !*** /Users/aiguojiang11/Desktop/mini_uni/utils/storage.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getUserInfo = void 0;
-var getUserInfo = function getUserInfo() {
-  try {
-    var value = uni.getStorageSync('userInfo');
-    if (value) {
-      return value;
-    } else {
-      return null;
-    }
-  } catch (e) {
-    console.log(e);
-    return null;
-  }
-};
-exports.getUserInfo = getUserInfo;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ })
 ]]);
