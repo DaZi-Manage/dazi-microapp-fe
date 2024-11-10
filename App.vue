@@ -1,5 +1,6 @@
 <script>
-const storage = require('./utils/storage.js')
+import request from './api/request'
+import * as storage from './utils/storage.js'
 
 export default {
 	globalData: {
@@ -58,48 +59,61 @@ export default {
 						console.log(data_res, 'data_res')
 
 						uni.login({
-							success(res) {
+							async success(res) {
 								uni.hideLoading()
 								if (res.code) {
-									uni.request({
-										url: 'http://192.168.0.102:3000/wx/login',
-										method: 'POST',
-										header: {
-											'Content-Type': 'application/json'
-										},
-										data: {
-											jsCode: res.code
-										},
-										success(login_res) {
-											if (login_res.data.code === 200) {
-												// uni.setStorageSync('token', login_res.data.data)
-												console.log(login_res, 'login_res')
+									request.post('/wx/login', {
+										jsCode: res.code
+									}).then(login_res => {
+										uni.setStorageSync('token', login_res)
+										console.log(login_res, 'login_res')
 
-												uni.request({
-													url: 'http://192.168.0.102:3000/wx/user/info',
-													method: 'POST',
-													header: {
-														'authorization': 'Bearer '+ login_res.data.data,
-													},
-													data: {
-														iv: data_res.iv,
-														encryptedData: data_res.encryptedData,
-													
-													},
-													success(info_res) {
-														console.log(info_res, 'info_res')
-													}
-												})
-
-											} else {
-												uni.showToast({
-													title: '登录失败',
-													icon: 'none'
-												})
+										request.post('/wx/user/info', {
+												iv: data_res.iv,
+												encryptedData: data_res.encryptedData,
 											}
-
-										}
+										).then(res => {
+											console.log('info', res)
+										})
 									})
+									// uni.request({
+									// 	url: 'http://192.168.0.102:3000/wx/login',
+									// 	method: 'POST',
+									// 	header: {
+									// 		'Content-Type': 'application/json'
+									// 	},
+									// 	data: {
+									// 		jsCode: res.code
+									// 	},
+									// 	success(login_res) {
+									// 		if (login_res.data.code === 200) {
+									// 			uni.setStorageSync('token', login_res.data.data)
+									// 			console.log(login_res, 'login_res')
+
+									// 			uni.request({
+									// 				url: 'http://192.168.0.102:3000/wx/user/info',
+									// 				method: 'POST',
+									// 				header: {
+									// 					'authorization': 'Bearer ' + login_res.data.data,
+									// 				},
+									// 				data: {
+									// 					iv: data_res.iv,
+									// 					encryptedData: data_res.encryptedData,
+									// 				},
+									// 				success(info_res) {
+									// 					console.log(info_res, 'info_res')
+									// 				}
+									// 			})
+
+									// 		} else {
+									// 			uni.showToast({
+									// 				title: '登录失败',
+									// 				icon: 'none'
+									// 			})
+									// 		}
+
+									// 	}
+									// })
 								} else {
 									console.log('登录失败！' + res.errMsg)
 								}

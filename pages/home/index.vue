@@ -11,7 +11,6 @@
     <view class="header" :style="'padding-top:' + navBarHeight + 'px;padding-bottom:20rpx'">
       <view class="search-box flex flex-align-center">
         <input type="text" class="clr_333 input" :value="keyword" placeholder="请输入搜索内容" @input="bindKeyword" />
-        <!-- <view class="btn">搜索</view> -->
       </view>
     </view>
 
