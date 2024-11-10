@@ -20,7 +20,7 @@
   "compileType": "miniprogram",
   "libVersion": "latest",
   "appid": "wxc525d4d5cccec191",
-  "projectname": "mini_uni",
+  "projectname": "dazi-microapp-fe",
   "condition": {
     "search": {
       "current": -1,
@@ -40,7 +40,7 @@
     }
   },
   "editorSetting": {
-    "tabIndent": "auto",
+    "tabIndent": "insertSpaces",
     "tabSize": 2
   }
 }
