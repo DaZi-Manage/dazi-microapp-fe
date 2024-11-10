@@ -15,8 +15,8 @@ export default {
 
 	methods: {
 		checkLogin() {
-			const userInfo = storage.getToken()
-			return !!userInfo
+			const token = storage.getToken()
+			return !!token
 		},
 
 		getSystemInfo() {
@@ -122,18 +122,9 @@ export default {
 								console.log(err)
 							}
 						})
-
-
-
-
 						// resolve(dataRes)
 					},
-
 				})
-
-
-
-
 			})
 		}
 	}
