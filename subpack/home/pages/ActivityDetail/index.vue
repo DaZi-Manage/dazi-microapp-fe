@@ -1,31 +1,23 @@
-<!--
- * @Author: 山风
- * @Date: 2024-11-09 15:36:39
- * @LastEditTime: 2024-11-10 18:10:17
- * @LastEditors: 山风
- * @Description: 
- * @FilePath: /mini_uni/subpack/home/pages/GoodsDetail/index.vue
--->
 <template>
   <view>
     <view class="navbar-content bg width-100 flex flex-align-center fixed"
-      :style="'padding-top:' + system_info.statusBarHeight + 'px;height:' + system_info.navBarHeight + 'px;' + 'opacity:' + navbar_opacity">
+      :style="'padding-top:' + systemInfo.statusBarHeight + 'px;height:' + systemInfo.navBarHeight + 'px;' + 'opacity:' + navbar_opacity">
       <view class="font-0" @click="toBack">
         <image class="icon-32" :src="arrow_black" />
       </view>
       <view class="flex flex-1 flex-align-center flex-justify-center font-17 font-weight-500 clr_333"
-        style="padding-right: 64rpx;">商品详情</view>
+        style="padding-right: 64rpx;">活动详情</view>
     </view>
 
     <view class="navbar-content width-100 flex flex-align-center fixed"
-      :style="'padding-top:' + system_info.statusBarHeight + 'px;height:' + system_info.navBarHeight + 'px;' + 'opacity:' + (1 - navbar_opacity)">
+      :style="'padding-top:' + systemInfo.statusBarHeight + 'px;height:' + systemInfo.navBarHeight + 'px;' + 'opacity:' + (1 - navbar_opacity)">
       <view class="nav-bg flex flex-align-center flex-justify-center" @click="toBack">
         <image class="icon-24" :src="arrow_white" />
       </view>
     </view>
 
     <swiper class="banner">
-      <swiper-item v-for="(item, index) in goods_detail.banner" :key="index" :current="current" :interval="3000"
+      <swiper-item v-for="(item, index) in activity_detail.banner" :key="index" :current="current" :interval="3000"
         autoplay circular :indicator-dots="true" @change="swiperChange" class="width-height-100">
         <view class="width-height-100" @click="previewImage(index)">
           <image class="width-height-100 theme-back" :src="item" />
@@ -34,19 +26,19 @@
     </swiper>
 
     <view class="detail">
-      <view class="clr_333 font-14 font-weight-500 margin-top-5">{{ goods_detail.name }}</view>
+      <view class="clr_333 font-14 font-weight-500 margin-top-5">{{ activity_detail.name }}</view>
 
       <view class="flex flex-align-center flex-justify-between margin-top-10">
-        <view class="clr_666 font-13 font-weight-400"><text class="theme ">{{ goods_detail.sale_num }}</text>/{{
-          goods_detail.total_num }}人报名</view>
-        <view class="font-11 font-weight-600">￥<text class="font-18 theme">{{ goods_detail.price }}</text></view>
+        <view class="clr_666 font-13 font-weight-400"><text class="theme">{{ activity_detail.sale_num }}</text>/{{
+          activity_detail.total_num }}人报名</view>
+        <view class="font-11 font-weight-600">￥<text class="font-18 theme">{{ activity_detail.price }}</text></view>
       </view>
 
       <view id="desc" class="clr_333 font-12 font-weight-400 margin-top-10 relative"
         :class="show_desc_btn && !show_more_desc ? 'desc-box-hide' : ''">
         <text class="clr_666"
           :class="show_desc_btn && !show_more_desc ? 'ellipsis inline-block desc-hide' : 'desc-show'">{{
-            goods_detail.desc }}</text>
+            activity_detail.desc }}</text>
         <template v-if="show_desc_btn">
           <view class="desc-more theme" @click="show_more_desc = !show_more_desc">
             <view style="margin-right: 2rpx;">{{ !show_more_desc ? '展开' : '收起' }}</view>
@@ -71,13 +63,13 @@ const app = getApp()
 export default {
   data() {
     return {
-      system_info: app.globalData.system_info,
+      systemInfo: app.globalData.systemInfo,
       navbar_opacity: 0,
       arrow_white: '/static/image/common/arrow-left-white.svg',
       arrow_black: '/static/image/common/arrow-left-black.svg',
       show_desc_btn: false,
       show_more_desc: true,
-      goods_detail: {
+      activity_detail: {
         banner: ['/static/image/common/arrow-left-white.svg', '/static/image/common/arrow-left-black.svg', '/static/image/common/arrow-left-white.svg'],
         name: '222活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称',
         sale_num: 100,
@@ -93,7 +85,7 @@ export default {
 
   computed: {
     is_order() {
-      return this.goods_detail.total_num !== this.goods_detail.sale_num
+      return this.activity_detail.total_num !== this.activity_detail.sale_num
     }
   },
 
@@ -135,13 +127,13 @@ export default {
     previewImage(current) {
       uni.previewImage({
         current,
-        urls: this.goods_detail.banner
+        urls: this.activity_detail.banner
       })
     },
 
     handleCall() {
       uni.makePhoneCall({
-        phoneNumber: this.goods_detail.phone,
+        phoneNumber: this.activity_detail.phone,
       })
     },
   }

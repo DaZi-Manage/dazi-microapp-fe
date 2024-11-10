@@ -43,11 +43,20 @@
       "root": "subpack/home",
       "pages": [
         {
-          "path": "pages/GoodsDetail/index",
+          "path": "pages/ActivityDetail/index",
           "name": "home",
           "style": {
             "navigationStyle": "custom"
           }
+        }
+      ]
+    },
+    {
+      "root": "subpack/mine",
+      "pages": [
+        {
+          "path": "pages/OrderList/index",
+          "name": "mine"
         }
       ]
     }

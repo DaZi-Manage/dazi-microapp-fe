@@ -4,8 +4,8 @@ import * as storage from './utils/storage.js'
 
 export default {
 	globalData: {
-		system_info: {},
-		user_info: {}
+		systemInfo: {},
+		userInfo: {}
 	},
 
 	onLaunch: function () {
@@ -23,7 +23,7 @@ export default {
 			const capsule = uni.getMenuButtonBoundingClientRect()
 			uni.getSystemInfo({
 				success: (res) => {
-					this.globalData.system_info = {
+					this.globalData.systemInfo = {
 						scrollTopHeight: capsule.bottom + capsule.top - res.statusBarHeight,
 						statusBarHeight: res.statusBarHeight,
 						winHeight: res.screenHeight,
@@ -52,7 +52,6 @@ export default {
 			})
 
 			return new Promise((resolve, reject) => {
-
 				uni.getUserProfile({
 					desc: '用于完善会员资料',
 					success: (data_res) => {
@@ -69,51 +68,16 @@ export default {
 										console.log(login_res, 'login_res')
 
 										request.post('/wx/user/info', {
-												iv: data_res.iv,
-												encryptedData: data_res.encryptedData,
-											}
-										).then(res => {
-											console.log('info', res)
+											iv: data_res.iv,
+											encryptedData: data_res.encryptedData,
+										}
+										).then(info_res => {
+											console.log('info', info_res)
+											uni.setStorageSync('userInfo', info_res)
+										}).catch((err) => {
+											console.log(err, 'err')
 										})
 									})
-									// uni.request({
-									// 	url: 'http://192.168.0.102:3000/wx/login',
-									// 	method: 'POST',
-									// 	header: {
-									// 		'Content-Type': 'application/json'
-									// 	},
-									// 	data: {
-									// 		jsCode: res.code
-									// 	},
-									// 	success(login_res) {
-									// 		if (login_res.data.code === 200) {
-									// 			uni.setStorageSync('token', login_res.data.data)
-									// 			console.log(login_res, 'login_res')
-
-									// 			uni.request({
-									// 				url: 'http://192.168.0.102:3000/wx/user/info',
-									// 				method: 'POST',
-									// 				header: {
-									// 					'authorization': 'Bearer ' + login_res.data.data,
-									// 				},
-									// 				data: {
-									// 					iv: data_res.iv,
-									// 					encryptedData: data_res.encryptedData,
-									// 				},
-									// 				success(info_res) {
-									// 					console.log(info_res, 'info_res')
-									// 				}
-									// 			})
-
-									// 		} else {
-									// 			uni.showToast({
-									// 				title: '登录失败',
-									// 				icon: 'none'
-									// 			})
-									// 		}
-
-									// 	}
-									// })
 								} else {
 									console.log('登录失败！' + res.errMsg)
 								}

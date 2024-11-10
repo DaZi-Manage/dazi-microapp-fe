@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      navBarHeight: app.globalData.system_info.navBarHeight,
+      navBarHeight: app.globalData.systemInfo.navBarHeight,
       keyword: '',
 
     }

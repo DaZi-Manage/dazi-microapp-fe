@@ -1,7 +1,15 @@
+<!--
+ * @Author: 山风
+ * @Date: 2024-11-09 14:59:23
+ * @LastEditTime: 2024-11-10 19:54:03
+ * @LastEditors: 山风
+ * @Description: 
+ * @FilePath: /mini_uni/pages/home/components/DataList/index.vue
+-->
 <template>
   <view class="data-list">
     <view v-for="(item, index) in list" :key="index">
-      <view class="item" @click="toGoodsDetail(item.id)">
+      <view class="item" @click="toActivityDetail(item.id)">
         <image class="theme-back block border-radius-12" style="height: 300rpx;width: 100%" :src="item.icon" />
         <view style="padding: 0 20rpx;">
           <view class="clr_333 font-18 font-weight-500 margin-top-16 ellipsis-two">{{ item.name }}</view>
@@ -66,9 +74,9 @@ export default {
   },
 
   methods: {
-    toGoodsDetail(id) {
+    toActivityDetail(id) {
       uni.navigateTo({
-        url: `/subpack/home/pages/GoodsDetail/index?id=${id}`
+        url: `/subpack/home/pages/ActivityDetail/index?id=${id}`
       })
     }
   }
