@@ -1,16 +1,16 @@
 <!--
  * @Author: 山风
  * @Date: 2024-11-10 20:43:49
- * @LastEditTime: 2024-11-10 21:06:41
+ * @LastEditTime: 2024-11-11 11:01:38
  * @LastEditors: 山风
  * @Description: 
  * @FilePath: /mini_uni/pages/mine/components/InfoBox/index.vue
 -->
 <template>
   <view class="back flex flex-align-center">
-    <image class="icon-70 border-radius-50" :src="userInfo.avatarUrl" />
+    <image class="icon-70 border-radius-50 theme-back" :src="userInfo.avatarUrl" />
     <view class="flex flex-column margin-left-6">
-      <view>{{  userInfo.nickName }}</view>
+      <view>{{ '测试测试' || userInfo.nickName }}</view>
     </view>
   </view>
 </template>

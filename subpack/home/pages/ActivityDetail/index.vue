@@ -26,15 +26,15 @@
     </swiper>
 
     <view class="detail">
-      <view class="clr_333 font-14 font-weight-500 margin-top-5">{{ activity_detail.name }}</view>
+      <view class="font-18 clr_333 font-weight-500 margin-top-5">{{ activity_detail.name }}</view>
 
       <view class="flex flex-align-center flex-justify-between margin-top-10">
-        <view class="clr_666 font-13 font-weight-400"><text class="theme">{{ activity_detail.sale_num }}</text>/{{
+        <view class="font-13 clr_666 font-weight-400"><text class="clr_orange">{{ activity_detail.sale_num }}</text>/{{
           activity_detail.total_num }}人报名</view>
-        <view class="font-11 font-weight-600">￥<text class="font-18 theme">{{ activity_detail.price }}</text></view>
+        <view class="font-11 font-weight-600">￥<text class="font-18 clr_orange">{{ activity_detail.price }}</text></view>
       </view>
 
-      <view id="desc" class="clr_333 font-12 font-weight-400 margin-top-10 relative"
+      <view id="desc" class="font-12 clr_333 font-weight-400 margin-top-10 relative"
         :class="show_desc_btn && !show_more_desc ? 'desc-box-hide' : ''">
         <text class="clr_666"
           :class="show_desc_btn && !show_more_desc ? 'ellipsis inline-block desc-hide' : 'desc-show'">{{
@@ -50,7 +50,7 @@
     <view class="footer flex flex-justify-between">
       <view class="text-center" style="width: 80rpx;margin: auto 20rpx;" @click="handleCall">
         <image class="icon-16" src="/static/image/common/phone.svg" />
-        <view class="clr_999 font-14">电话</view>
+        <view class="font-14 clr_999">电话</view>
       </view>
       <view :class="'btn ' + (is_order ? 'theme-back' : 'cb-back')">{{ is_order ? '立即下单' : '名额不足' }}</view>
     </view>

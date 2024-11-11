@@ -1,13 +1,13 @@
 .theme {
-  color: #F8B316;
+  color: #4ba1f1 ;
 }
 
 .theme-back {
-  background-color: #F8B316;
+  background-color: #4ba1f1 ;
 }
 
 .theme-border {
-  border: 1px solid #F8B316;
+  border: 1px solid #4ba1f1 ;
 }
 
 .white {
@@ -36,4 +36,8 @@
 
 .clr_999 {
   color: #999999;
+}
+
+.clr_orange {
+  color: orange ;
 }

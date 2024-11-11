@@ -70,13 +70,15 @@ export default {
 										request.post('/wx/user/info', {
 											iv: data_res.iv,
 											encryptedData: data_res.encryptedData,
-										}
-										).then(info_res => {
+										}).then(info_res => {
 											console.log('info', info_res)
 											uni.setStorageSync('userInfo', info_res)
-										}).catch((err) => {
-											console.log(err, 'err')
+										}).catch(info_err => {
+											console.log(info_err, 'info_err')
 										})
+									}).catch(login_err => {
+										console.log(login_err, 'login_err')
+
 									})
 								} else {
 									console.log('登录失败！' + res.errMsg)

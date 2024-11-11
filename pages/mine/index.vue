@@ -1,16 +1,23 @@
 <!--
  * @Author: 山风
  * @Date: 2024-11-06 15:39:51
- * @LastEditTime: 2024-11-10 20:58:45
+ * @LastEditTime: 2024-11-11 15:09:35
  * @LastEditors: 山风
  * @Description: 
  * @FilePath: /mini_uni/pages/mine/index.vue
 -->
 <template>
   <view class="container">
-    <InfoBox :userInfo="userInfo" />
 
-    <OrderBox />
+    <view class="header" :style="'padding-top:' + navBarHeight + 'px'">
+
+    </view>
+
+    <view :style="'padding-top:' + navBarHeight + 'px;padding-bottom:20rpx'">
+      <InfoBox :userInfo="userInfo" />
+
+      <OrderBox />
+    </view>
   </view>
 </template>
 
@@ -20,6 +27,8 @@ import OrderBox from './components/OrderBox/index'
 
 import request from '@/api/request'
 
+const app = getApp()
+
 export default {
   components: {
     InfoBox,
@@ -27,6 +36,7 @@ export default {
   },
   data() {
     return {
+      navBarHeight: app.globalData.systemInfo.navBarHeight,
 
     }
   },
@@ -51,8 +61,19 @@ export default {
 
 <style lang="less" scoped>
 .container {
-  background-color: #f5f4f2;
+  overflow: hidden;
+  background-color: #f8f8f8;
   box-sizing: border-box;
   padding-bottom: calc(env(safe-area-inset-bottom) + 50px);
+}
+
+.header {
+  background: linear-gradient(180deg, orange 0%, #f8f8f8 100%);
+  box-sizing: border-box;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 111;
 }
 </style>

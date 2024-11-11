@@ -2,7 +2,7 @@ Component({
 	data: {
 		selected: 0,
 		color: '#666',
-		selectedColor: '#F8B316',
+		selectedColor: '#4ba1f1 ',
 		list: [
 			{
 				pagePath: '/pages/home/index',
